@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ateliê do Sabor — Cursos de culinária para iniciantes e famílias</title>
+<meta name="description" content="Aprenda a cozinhar do zero com a Chef Helena Duarte. Cursos presenciais Culinária Essencial (a partir de 13 anos) e Culinária Kids (crianças de 6 a 12 anos com um responsável). Faça sua pré-inscrição.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --creme:#fbf6ee; --creme-2:#f3e9d9; --branco:#fff;
+  --tinta:#2b2118; --tinta-2:#5a4a3c;
+  --terracota:#b4472a; --terracota-escuro:#8f3720;
+  --oliva:#4f6b3a; --oliva-claro:#e5edd9;
+  --kids:#2f6f8f; --kids-claro:#dcecf3;
+  --mostarda:#e8b04a;
+  --erro:#b00020; --erro-claro:#fdecee;
+  --ok:#2e6b34; --ok-claro:#e6f2e7;
+  --borda:#e0d3bf;
+  --raio:14px; --sombra:0 6px 24px rgba(60,40,20,.08);
+  --max:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;font-family:"Nunito Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:1.125rem;line-height:1.6;color:var(--tinta);background:var(--creme)}
+img,svg{max-width:100%;display:block}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15;margin:0 0 .5em;color:var(--tinta)}
+h1{font-size:clamp(2.1rem,5vw,3.4rem)}
+h2{font-size:clamp(1.7rem,3.5vw,2.4rem)}
+h3{font-size:1.4rem}
+p{margin:0 0 1em}
+a{color:var(--terracota-escuro)}
+a:hover{color:var(--terracota)}
+:focus-visible{outline:3px solid var(--mostarda);outline-offset:3px;border-radius:4px}
+.container{width:100%;max-width:var(--max);margin:0 auto;padding:0 20px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.pular{position:absolute;left:-999px;top:8px;background:var(--tinta);color:#fff;padding:10px 16px;border-radius:8px;z-index:100}
+.pular:focus{left:8px}
+
+/* Botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:52px;padding:.75em 1.4em;border-radius:999px;border:2px solid transparent;font:inherit;font-weight:800;text-decoration:none;cursor:pointer;transition:background .2s,transform .1s}
+.btn:active{transform:translateY(1px)}
+.btn-primario{background:var(--terracota);color:#fff}
+.btn-primario:hover{background:var(--terracota-escuro);color:#fff}
+.btn-secundario{background:transparent;color:var(--tinta);border-color:var(--tinta)}
+.btn-secundario:hover{background:var(--tinta);color:#fff}
+.btn-kids{background:var(--kids);color:#fff}
+.btn-kids:hover{background:#235570;color:#fff}
+
+/* Cabeçalho */
+.topo{position:sticky;top:0;z-index:50;background:rgba(251,246,238,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--borda)}
+.topo .container{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
+.marca{display:flex;align-items:center;gap:10px;font-family:Fraunces,Georgia,serif;font-weight:700;font-size:1.35rem;color:var(--tinta);text-decoration:none}
+.marca svg{width:38px;height:38px}
+.menu{display:none;gap:22px;list-style:none;margin:0;padding:0}
+.menu a{color:var(--tinta);text-decoration:none;font-weight:700;font-size:1rem}
+.menu a:hover{color:var(--terracota)}
+.topo .btn{min-height:44px;padding:.5em 1.1em;font-size:1rem}
+@media (min-width:900px){.menu{display:flex}}
+
+/* Hero */
+.hero{padding:48px 0 56px;background:radial-gradient(circle at 85% 20%,var(--creme-2),transparent 55%)}
+.hero .container{display:grid;gap:36px;align-items:center}
+@media (min-width:900px){.hero .container{grid-template-columns:1.1fr .9fr}}
+.selo{display:inline-block;background:var(--oliva-claro);color:var(--oliva);font-weight:800;font-size:.95rem;padding:.35em .9em;border-radius:999px;margin-bottom:16px}
+.hero p.lead{font-size:1.25rem;color:var(--tinta-2);max-width:36ch}
+.hero-acoes{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0}
+.hero-destaques{display:flex;flex-wrap:wrap;gap:10px 22px;list-style:none;padding:0;margin:0;color:var(--tinta-2);font-weight:700;font-size:1rem}
+.hero-destaques li::before{content:"✓ ";color:var(--oliva)}
+.hero-ilustra{background:var(--branco);border-radius:28px;padding:20px;box-shadow:var(--sombra)}
+
+/* Seções */
+section{padding:64px 0}
+.secao-alt{background:var(--branco)}
+.intro{max-width:62ch;color:var(--tinta-2);margin-bottom:32px}
+
+/* Cards dos cursos */
+.cursos{display:grid;gap:24px}
+@media (min-width:900px){.cursos{grid-template-columns:1fr 1fr}}
+.curso{background:var(--branco);border:1px solid var(--borda);border-radius:20px;overflow:hidden;box-shadow:var(--sombra);display:flex;flex-direction:column}
+.curso-topo{padding:24px 26px;color:#fff;display:flex;gap:16px;align-items:center}
+.curso-topo svg{width:64px;height:64px;flex:none}
+.curso-topo h3{color:#fff;margin:0}
+.curso-topo p{margin:0;opacity:.95;font-weight:600}
+.curso.essencial .curso-topo{background:var(--terracota)}
+.curso.kids .curso-topo{background:var(--kids)}
+.curso-corpo{padding:24px 26px;display:flex;flex-direction:column;gap:18px;flex:1}
+.fatos{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:0}
+.fatos div{background:var(--creme);border-radius:12px;padding:12px 14px}
+.fatos dt{font-size:.85rem;font-weight:700;color:var(--tinta-2);text-transform:uppercase;letter-spacing:.03em}
+.fatos dd{margin:0;font-weight:800;font-size:1.05rem}
+.curso h4{font-size:1.05rem;margin:0 0 6px}
+.modulos{margin:0;padding-left:1.4em}
+.modulos li{margin-bottom:2px}
+.preco{border-top:1px dashed var(--borda);padding-top:16px}
+.preco .valor{font-family:Fraunces,Georgia,serif;font-size:2rem;font-weight:700;line-height:1}
+.preco .valor small{font-family:"Nunito Sans",sans-serif;font-size:1rem;font-weight:700;color:var(--tinta-2)}
+.preco p{margin:.4em 0 0;color:var(--tinta-2);font-size:1rem}
+.incluso{background:var(--oliva-claro);color:var(--oliva);font-weight:700;border-radius:10px;padding:10px 14px;font-size:1rem}
+.curso .btn{margin-top:auto;align-self:flex-start}
+
+/* Tabela de turmas */
+.tabela-wrap{overflow-x:auto;border-radius:var(--raio);border:1px solid var(--borda);background:var(--branco)}
+table{width:100%;border-collapse:collapse;min-width:640px}
+caption{text-align:left;padding:16px 18px;font-weight:700;color:var(--tinta-2)}
+th,td{text-align:left;padding:14px 18px;border-top:1px solid var(--borda);vertical-align:top}
+thead th{background:var(--creme-2);font-size:.95rem;text-transform:uppercase;letter-spacing:.03em}
+.tag{display:inline-block;font-size:.85rem;font-weight:800;padding:.15em .6em;border-radius:999px}
+.tag-ess{background:#f7e1d9;color:var(--terracota-escuro)}
+.tag-kids{background:var(--kids-claro);color:#235570}
+.proximo{font-weight:800;color:var(--oliva)}
+.nota{font-size:1rem;color:var(--tinta-2);margin-top:14px}
+
+/* Chef */
+.chef{display:grid;gap:32px;align-items:center}
+@media (min-width:800px){.chef{grid-template-columns:280px 1fr}}
+.chef-foto{background:var(--creme-2);border-radius:50%;aspect-ratio:1;max-width:280px;margin:0 auto;padding:18px}
+.chef blockquote{margin:16px 0 0;padding:16px 20px;border-left:4px solid var(--mostarda);background:var(--creme);border-radius:0 12px 12px 0;font-style:italic}
+
+/* Informações / FAQ */
+.infos{display:grid;gap:18px}
+@media (min-width:760px){.infos{grid-template-columns:repeat(3,1fr)}}
+.info{background:var(--branco);border:1px solid var(--borda);border-radius:var(--raio);padding:22px}
+.info .icone{font-size:1.8rem;line-height:1;margin-bottom:8px}
+.info h3{font-size:1.2rem}
+.info p{margin:0;color:var(--tinta-2)}
+details{background:var(--branco);border:1px solid var(--borda);border-radius:12px;margin-top:12px}
+summary{cursor:pointer;padding:16px 20px;font-weight:800;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.4rem;line-height:1;color:var(--terracota)}
+details[open] summary::after{content:"–"}
+details > div{padding:0 20px 18px;color:var(--tinta-2)}
+
+/* Formulário */
+.form-area{display:grid;gap:32px}
+@media (min-width:960px){.form-area{grid-template-columns:.8fr 1.2fr}}
+.form-lado ul{padding-left:1.2em;color:var(--tinta-2)}
+form,.sucesso{background:var(--branco);border:1px solid var(--borda);border-radius:20px;padding:26px;box-shadow:var(--sombra)}
+fieldset{border:0;padding:0;margin:0 0 26px}
+legend{font-family:Fraunces,Georgia,serif;font-size:1.3rem;font-weight:700;margin-bottom:12px;padding:0}
+.passo{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--terracota);color:#fff;font-family:"Nunito Sans";font-size:1rem;margin-right:8px}
+.campo{margin-bottom:18px}
+.campo label,.rotulo{display:block;font-weight:800;margin-bottom:6px}
+.opc{font-weight:600;color:var(--tinta-2);font-size:.95rem}
+.dica{display:block;font-size:.95rem;color:var(--tinta-2);margin:-2px 0 6px}
+input[type=text],input[type=email],input[type=tel],input[type=number],select,textarea{width:100%;font:inherit;font-size:1.1rem;padding:.7em .85em;border:2px solid #b9a88f;border-radius:10px;background:#fff;color:var(--tinta);min-height:52px}
+textarea{min-height:96px;resize:vertical}
+input:focus,select:focus,textarea:focus{border-color:var(--terracota);outline:3px solid rgba(232,176,74,.55);outline-offset:1px}
+[aria-invalid=true]{border-color:var(--erro)!important;background:var(--erro-claro)!important}
+.erro{display:none;color:var(--erro);font-weight:700;font-size:1rem;margin:6px 0 0}
+.erro.ativo{display:block}
+.erro::before{content:"⚠ "}
+.grade-2{display:grid;gap:0 16px}
+@media (min-width:600px){.grade-2{grid-template-columns:1fr 1fr}}
+.cartoes-curso{display:grid;gap:12px}
+@media (min-width:600px){.cartoes-curso{grid-template-columns:1fr 1fr}}
+.cartao-radio{position:relative}
+.cartao-radio input{position:absolute;opacity:0;width:1px;height:1px}
+.cartao-radio label{display:block;border:2px solid #b9a88f;border-radius:14px;padding:14px 16px 14px 48px;cursor:pointer;font-weight:600;position:relative;height:100%;margin:0}
+.cartao-radio label strong{display:block;font-size:1.1rem}
+.cartao-radio label span{font-size:.95rem;color:var(--tinta-2)}
+.cartao-radio label::before{content:"";position:absolute;left:16px;top:18px;width:20px;height:20px;border-radius:50%;border:2px solid #8a7a66;background:#fff}
+.cartao-radio input:checked + label{border-color:var(--terracota);background:#fdf1ec}
+.cartao-radio input:checked + label::before{border-color:var(--terracota);box-shadow:inset 0 0 0 4px #fff;background:var(--terracota)}
+.cartao-radio input:focus-visible + label{outline:3px solid var(--mostarda);outline-offset:2px}
+.opcoes-inline{display:flex;flex-wrap:wrap;gap:10px 24px}
+.opcoes-inline label{display:flex;align-items:center;gap:8px;font-weight:700;cursor:pointer;min-height:44px}
+input[type=radio],input[type=checkbox]{width:22px;height:22px;accent-color:var(--terracota);flex:none}
+.aceite{display:flex;gap:10px;align-items:flex-start;font-weight:600}
+.aceite input{margin-top:4px}
+.aviso-bloco{border-radius:12px;padding:12px 16px;font-size:1rem;margin-bottom:18px}
+.aviso-info{background:var(--kids-claro);color:#1f4a60}
+.resumo-erros{background:var(--erro-claro);border:2px solid var(--erro);border-radius:12px;padding:16px 20px;margin-bottom:22px}
+.resumo-erros h3{color:var(--erro);font-family:"Nunito Sans";font-size:1.1rem;margin:0 0 6px}
+.resumo-erros ul{margin:0;padding-left:1.2em}
+.resumo-erros a{color:var(--erro);font-weight:700}
+.sucesso{border-color:var(--ok);background:var(--ok-claro)}
+.sucesso h3{color:var(--ok)}
+.sucesso dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;background:#fff;border-radius:12px;padding:16px;margin:16px 0}
+.sucesso dt{font-weight:800}
+.sucesso dd{margin:0}
+.obrig{color:var(--erro)}
+
+/* Rodapé */
+footer{background:var(--tinta);color:#f1e7d8;padding:56px 0 28px}
+footer h2,footer h3{color:#fff}
+footer a{color:#ffd58a}
+footer a:hover{color:#fff}
+.rodape-grade{display:grid;gap:28px}
+@media (min-width:760px){.rodape-grade{grid-template-columns:1.2fr 1fr 1fr}}
+.contato-lista{list-style:none;padding:0;margin:0}
+.contato-lista li{margin-bottom:10px}
+.creditos{border-top:1px solid #4b3d30;margin-top:36px;padding-top:18px;font-size:.95rem;color:#c9b9a3}
+
+/* CTA flutuante no celular */
+.cta-movel{position:fixed;left:16px;right:16px;bottom:16px;z-index:40;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+@media (min-width:900px){.cta-movel{display:none}}
+.cta-movel.oculto{display:none}
+</style>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topo">
+  <div class="container">
+    <a class="marca" href="#inicio" aria-label="Ateliê do Sabor, voltar ao início">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#b4472a"/><path d="M14 22h20v8a8 8 0 0 1-8 8h-4a8 8 0 0 1-8-8z" fill="#fbf6ee"/><path d="M11 22h26" stroke="#fbf6ee" stroke-width="3" stroke-linecap="round"/><path d="M20 17c0-3 3-3 3-6M26 17c0-3 3-3 3-6" stroke="#e8b04a" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg>
+      Ateliê do Sabor
+    </a>
+    <nav aria-label="Navegação principal">
+      <ul class="menu">
+        <li><a href="#cursos">Cursos</a></li>
+        <li><a href="#turmas">Turmas e datas</a></li>
+        <li><a href="#chef">A Chef</a></li>
+        <li><a href="#duvidas">Dúvidas</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-primario" href="#pre-inscricao">Pré-inscrição</a>
+  </div>
+</header>
+
+<main id="conteudo">
+  <!-- HERO -->
+  <section class="hero" id="inicio" aria-labelledby="titulo-hero">
+    <div class="container">
+      <div>
+        <span class="selo">Cursos presenciais · Sem experiência necessária</span>
+        <h1 id="titulo-hero">Aprenda a cozinhar do zero, com calma e na prática.</h1>
+        <p class="lead">Turmas pequenas, ingredientes inclusos e uma chef com 15 anos de cozinha profissional ao seu lado. Para quem nunca cozinhou — e para cozinhar junto com as crianças.</p>
+        <div class="hero-acoes">
+          <a class="btn btn-primario" href="#pre-inscricao">Fazer pré-inscrição</a>
+          <a class="btn btn-secundario" href="#cursos">Conhecer os cursos</a>
+        </div>
+        <ul class="hero-destaques">
+          <li>Ingredientes e avental inclusos</li>
+          <li>Certificado de conclusão</li>
+          <li>Reembolso integral até 7 dias antes</li>
+        </ul>
+      </div>
+      <div class="hero-ilustra">
+        <svg viewBox="0 0 480 360" role="img" aria-labelledby="ilu-hero-t">
+          <title id="ilu-hero-t">Ilustração de uma bancada de cozinha com panela fumegante, tábua com legumes cortados, pão e utensílios</title>
+          <rect x="0" y="0" width="480" height="360" rx="22" fill="#f3e9d9"/>
+          <rect x="0" y="250" width="480" height="110" fill="#d9b88f"/>
+          <rect x="0" y="244" width="480" height="14" fill="#c49a6c"/>
+          <!-- prateleira -->
+          <rect x="40" y="60" width="160" height="8" rx="4" fill="#c49a6c"/>
+          <rect x="52" y="28" width="26" height="32" rx="4" fill="#4f6b3a"/><rect x="86" y="20" width="30" height="40" rx="4" fill="#e8b04a"/><rect x="124" y="32" width="24" height="28" rx="4" fill="#b4472a"/><rect x="156" y="26" width="28" height="34" rx="4" fill="#2f6f8f"/>
+          <!-- panela -->
+          <path d="M80 170h150v60a20 20 0 0 1-20 20H100a20 20 0 0 1-20-20z" fill="#b4472a"/>
+          <rect x="70" y="160" width="170" height="16" rx="8" fill="#8f3720"/>
+          <rect x="50" y="186" width="34" height="10" rx="5" fill="#8f3720"/><rect x="226" y="186" width="34" height="10" rx="5" fill="#8f3720"/>
+          <path d="M120 145c0-14 14-14 14-28s-14-14-14-28M155 145c0-14 14-14 14-28s-14-14-14-28M190 145c0-14 14-14 14-28s-14-14-14-28" stroke="#fff" stroke-width="6" stroke-linecap="round" fill="none" opacity=".85"/>
+          <!-- tábua -->
+          <rect x="270" y="210" width="170" height="36" rx="10" fill="#a87547"/>
+          <circle cx="300" cy="222" r="12" fill="#e2543b"/><circle cx="325" cy="226" r="10" fill="#e2543b"/>
+          <rect x="350" y="214" width="40" height="12" rx="6" fill="#f08a2a"/><rect x="356" y="228" width="34" height="10" rx="5" fill="#f08a2a"/>
+          <path d="M402 214l26-10 4 10-26 10z" fill="#c9d1d6"/><rect x="420" y="200" width="20" height="8" rx="3" fill="#2b2118" transform="rotate(-20 430 204)"/>
+          <!-- pão -->
+          <ellipse cx="380" cy="160" rx="56" ry="34" fill="#d99b52"/>
+          <path d="M352 150q8 14 0 26M378 144q8 16 0 32M404 150q8 14 0 26" stroke="#b97a35" stroke-width="5" stroke-linecap="round" fill="none"/>
+          <!-- colher de pau -->
+          <rect x="300" y="60" width="10" height="90" rx="5" fill="#a87547" transform="rotate(20 305 105)"/>
+          <ellipse cx="290" cy="58" rx="16" ry="22" fill="#a87547" transform="rotate(20 290 58)"/>
+          <!-- folhas -->
+          <path d="M60 300q30-40 60 0q-30 20-60 0z" fill="#4f6b3a"/><path d="M400 310q30-30 50 0q-25 16-50 0z" fill="#4f6b3a"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURSOS -->
+  <section id="cursos" class="secao-alt" aria-labelledby="titulo-cursos">
+    <div class="container">
+      <h2 id="titulo-cursos">Escolha seu curso</h2>
+      <p class="intro">Os dois cursos são presenciais, com turmas pequenas para que a chef acompanhe cada aluno de perto. Você não precisa saber nada de cozinha para começar.</p>
+
+      <div class="cursos">
+        <!-- Essencial -->
+        <article class="curso essencial" aria-labelledby="titulo-essencial">
+          <div class="curso-topo">
+            <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="31" fill="#fff" opacity=".18"/><path d="M18 30h28v10a10 10 0 0 1-10 10h-8a10 10 0 0 1-10-10z" fill="#fff"/><rect x="14" y="27" width="36" height="5" rx="2.5" fill="#fff"/><path d="M27 22c0-4 4-4 4-8M35 22c0-4 4-4 4-8" stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none"/></svg>
+            <div>
+              <h3 id="titulo-essencial">Culinária Essencial</h3>
+              <p>Para adolescentes, adultos e idosos que querem aprender do zero</p>
+            </div>
+          </div>
+          <div class="curso-corpo">
+            <dl class="fatos">
+              <div><dt>Aulas</dt><dd>8 aulas de 3 horas</dd></div>
+              <div><dt>Vagas</dt><dd>12 por turma</dd></div>
+              <div><dt>Idade</dt><dd>A partir de 13 anos, sem limite</dd></div>
+              <div><dt>Experiência</dt><dd>Nenhuma necessária</dd></div>
+            </dl>
+            <div>
+              <h4>O que você vai aprender</h4>
+              <ol class="modulos">
+                <li>Higiene e segurança na cozinha</li>
+                <li>Cortes e técnicas básicas</li>
+                <li>Caldos e molhos</li>
+                <li>Massas e pães simples</li>
+                <li>Sobremesas</li>
+              </ol>
+            </div>
+            <div>
+              <h4>Turmas</h4>
+              <ul class="modulos">
+                <li><strong>Manhã:</strong> segundas e quartas, 8h–11h (4 semanas)</li>
+                <li><strong>Noite:</strong> terças e quintas, 19h–22h (4 semanas)</li>
+                <li><strong>Sábado:</strong> sábados, 14h–17h (8 semanas)</li>
+              </ul>
+            </div>
+            <div class="preco">
+              <p class="valor">R$ 480 <small>à vista</small></p>
+              <p>ou 4x de R$ 130 no cartão (total R$ 520)</p>
+            </div>
+            <p class="incluso">Ingredientes e avental inclusos</p>
+            <a class="btn btn-primario" href="#pre-inscricao" data-curso="essencial">Quero o Culinária Essencial</a>
+          </div>
+        </article>
+
+        <!-- Kids -->
+        <article class="curso kids" aria-labelledby="titulo-kids">
+          <div class="curso-topo">
+            <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="31" fill="#fff" opacity=".18"/><circle cx="24" cy="24" r="7" fill="#fff"/><circle cx="42" cy="28" r="5" fill="#fff"/><path d="M12 50c0-9 6-15 12-15s12 6 12 15z" fill="#fff"/><path d="M33 50c0-7 4-11 9-11s9 4 9 11z" fill="#fff"/></svg>
+            <div>
+              <h3 id="titulo-kids">Culinária Kids</h3>
+              <p>Criança e responsável cozinhando juntos</p>
+            </div>
+          </div>
+          <div class="curso-corpo">
+            <dl class="fatos">
+              <div><dt>Aulas</dt><dd>8 aulas de 2 horas</dd></div>
+              <div><dt>Vagas</dt><dd>8 duplas por turma</dd></div>
+              <div><dt>Idade da criança</dt><dd>De 6 a 12 anos</dd></div>
+              <div><dt>Formato</dt><dd>1 criança + 1 responsável</dd></div>
+            </dl>
+            <p style="margin:0">Cada criança participa acompanhada de <strong>um responsável, que também cozinha na aula</strong>. Um tempo de qualidade em família — com receitas que dá vontade de repetir em casa.</p>
+            <div>
+              <h4>O que vocês vão aprender</h4>
+              <ol class="modulos">
+                <li>Higiene e segurança na cozinha</li>
+                <li>Lanches saudáveis</li>
+                <li>Massas e pães divertidos</li>
+                <li>Sobremesas</li>
+              </ol>
+            </div>
+            <div>
+              <h4>Turma</h4>
+              <ul class="modulos">
+                <li><strong>Sábado:</strong> sábados, 9h–11h (8 semanas)</li>
+              </ul>
+            </div>
+            <div class="preco">
+              <p class="valor">R$ 560 <small>por dupla, à vista</small></p>
+              <p>ou 4x de R$ 150 no cartão (total R$ 600) — valor para criança + responsável</p>
+            </div>
+            <p class="incluso">Ingredientes e aventais da criança e do responsável inclusos</p>
+            <a class="btn btn-kids" href="#pre-inscricao" data-curso="kids">Quero o Culinária Kids</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TURMAS -->
+  <section id="turmas" aria-labelledby="titulo-turmas">
+    <div class="container">
+      <h2 id="titulo-turmas">Turmas e próximas datas de início</h2>
+      <p class="intro">As turmas da manhã e da noite começam todo mês. As turmas de sábado e Kids começam a cada dois meses: no primeiro sábado de fevereiro, abril, junho, agosto e outubro.</p>
+      <div class="tabela-wrap" tabindex="0" role="region" aria-labelledby="cap-turmas">
+        <table>
+          <caption id="cap-turmas">Horários de todas as turmas e data do próximo início</caption>
+          <thead>
+            <tr><th scope="col">Turma</th><th scope="col">Dias e horário</th><th scope="col">Duração</th><th scope="col">Começa</th><th scope="col">Próximo início</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row"><span class="tag tag-ess">Essencial</span> Manhã</th><td>Segundas e quartas, 8h–11h</td><td>4 semanas</td><td>Todo mês, na 1ª segunda-feira</td><td class="proximo" data-proximo="manha">—</td></tr>
+            <tr><th scope="row"><span class="tag tag-ess">Essencial</span> Noite</th><td>Terças e quintas, 19h–22h</td><td>4 semanas</td><td>Todo mês, na 1ª terça-feira</td><td class="proximo" data-proximo="noite">—</td></tr>
+            <tr><th scope="row"><span class="tag tag-ess">Essencial</span> Sábado</th><td>Sábados, 14h–17h</td><td>8 semanas</td><td>1º sábado de fev, abr, jun, ago e out</td><td class="proximo" data-proximo="sabado">—</td></tr>
+            <tr><th scope="row"><span class="tag tag-kids">Kids</span> Sábado</th><td>Sábados, 9h–11h</td><td>8 semanas</td><td>1º sábado de fev, abr, jun, ago e out</td><td class="proximo" data-proximo="kids">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">As datas de próximo início são calculadas automaticamente a partir do dia de hoje. A vaga é confirmada pela nossa equipe após a pré-inscrição.</p>
+    </div>
+  </section>
+
+  <!-- CHEF -->
+  <section id="chef" class="secao-alt" aria-labelledby="titulo-chef">
+    <div class="container chef">
+      <div class="chef-foto">
+        <svg viewBox="0 0 240 240" role="img" aria-labelledby="ilu-chef-t">
+          <title id="ilu-chef-t">Ilustração da Chef Helena Duarte sorrindo, com dólmã branco e chapéu de chef</title>
+          <circle cx="120" cy="120" r="118" fill="#f3e9d9"/>
+          <path d="M40 230c6-50 40-74 80-74s74 24 80 74z" fill="#fff" stroke="#e0d3bf" stroke-width="3"/>
+          <circle cx="104" cy="196" r="4" fill="#b4472a"/><circle cx="136" cy="196" r="4" fill="#b4472a"/><circle cx="104" cy="214" r="4" fill="#b4472a"/><circle cx="136" cy="214" r="4" fill="#b4472a"/>
+          <rect x="108" y="140" width="24" height="24" rx="8" fill="#c98b62"/>
+          <path d="M72 104c0-34 22-54 48-54s48 20 48 54c0 10-4 26-8 30H80c-4-4-8-20-8-30z" fill="#4a2c1d"/>
+          <ellipse cx="120" cy="112" rx="38" ry="42" fill="#d9a07a"/>
+          <circle cx="106" cy="108" r="4" fill="#2b2118"/><circle cx="134" cy="108" r="4" fill="#2b2118"/>
+          <path d="M106 128q14 12 28 0" stroke="#8f3720" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <path d="M80 62c-14-4-16-28 4-30 4-16 28-20 36-6 10-14 34-8 34 8 18 0 20 26 4 30z" fill="#fff" stroke="#e0d3bf" stroke-width="3"/>
+          <rect x="82" y="58" width="76" height="18" rx="6" fill="#fff" stroke="#e0d3bf" stroke-width="3"/>
+        </svg>
+      </div>
+      <div>
+        <h2 id="titulo-chef">Quem vai te ensinar: Chef Helena Duarte</h2>
+        <p>São <strong>15 anos de experiência em cozinha profissional</strong>. Helena conduz todas as turmas e acredita que cozinhar bem se aprende com passos simples, repetição e muita prática — por isso as turmas são pequenas e todo mundo põe a mão na massa.</p>
+        <p>Nas aulas, ela explica o porquê de cada técnica, respeita o ritmo de cada aluno e mostra como adaptar receitas para o dia a dia da sua casa.</p>
+        <blockquote>“Ninguém nasce sabendo cozinhar. Basta alguém mostrar o caminho — o resto é praticar com gosto.”</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFORMAÇÕES / DÚVIDAS -->
+  <section id="duvidas" aria-labelledby="titulo-duvidas">
+    <div class="container">
+      <h2 id="titulo-duvidas">Informações importantes</h2>
+      <div class="infos">
+        <div class="info"><div class="icone" aria-hidden="true">↩️</div><h3>Reembolso</h3><p>Reembolso integral se você desistir até 7 dias antes do início da turma.</p></div>
+        <div class="info"><div class="icone" aria-hidden="true">📜</div><h3>Certificado</h3><p>Certificado de conclusão nos dois cursos, com no mínimo 75% de presença.</p></div>
+        <div class="info"><div class="icone" aria-hidden="true">🧺</div><h3>Tudo incluso</h3><p>Ingredientes e avental já estão no valor. É só chegar e cozinhar.</p></div>
+      </div>
+
+      <h3 style="margin-top:40px">Perguntas frequentes</h3>
+      <details><summary>Nunca cozinhei nada. Vou conseguir acompanhar?</summary><div><p>Sim. Nenhum dos cursos exige experiência. O primeiro módulo é sobre higiene e segurança, e as técnicas evoluem aos poucos, aula após aula.</p></div></details>
+      <details><summary>Tenho mais de 60 anos. Posso fazer o Culinária Essencial?</summary><div><p>Pode, sim. O curso é a partir de 13 anos e não tem limite de idade.</p></div></details>
+      <details><summary>Meu filho tem 13 anos ou mais. Qual curso ele faz?</summary><div><p>A partir de 13 anos, o curso indicado é o Culinária Essencial. Para menores de 18 anos, pedimos os dados de um responsável na pré-inscrição. O Culinária Kids é para crianças de 6 a 12 anos.</p></div></details>
+      <details><summary>No Kids, o responsável só acompanha ou também cozinha?</summary><div><p>Também cozinha. Cada dupla (criança + responsável) prepara as receitas junto, e o valor de R$ 560 já cobre os dois, incluindo os aventais.</p></div></details>
+      <details><summary>Tenho alergia ou restrição alimentar. E agora?</summary><div><p>Informe no formulário de pré-inscrição. A chef usa essas informações para orientar substituições e cuidados durante as aulas.</p></div></details>
+      <details><summary>A pré-inscrição já garante minha vaga?</summary><div><p>A pré-inscrição registra seu interesse. A equipe entra em contato para confirmar a vaga e combinar o pagamento (à vista ou parcelado em 4x no cartão).</p></div></details>
+    </div>
+  </section>
+
+  <!-- PRÉ-INSCRIÇÃO -->
+  <section id="pre-inscricao" class="secao-alt" aria-labelledby="titulo-form">
+    <div class="container form-area">
+      <div class="form-lado">
+        <h2 id="titulo-form">Faça sua pré-inscrição</h2>
+        <p>Leva cerca de 2 minutos. Depois, nossa equipe entra em contato pelo WhatsApp ou e-mail para confirmar a vaga e o pagamento.</p>
+        <ul>
+          <li>Campos com <span class="obrig" aria-hidden="true">*</span> são obrigatórios.</li>
+          <li>Se for para o Culinária Kids, tenha em mãos o nome e a idade da criança.</li>
+          <li>Menores de 18 anos precisam de um responsável.</li>
+        </ul>
+        <p class="nota">Ainda com dúvidas? Fale pelo WhatsApp <a href="https://wa.me/5500000000000">(00) 00000-0000</a>.</p>
+      </div>
+
+      <div>
+        <form id="form-pre" novalidate aria-describedby="form-desc">
+          <p id="form-desc" class="sr-only">Formulário de pré-inscrição. Os erros, se houver, serão listados no topo do formulário.</p>
+          <div id="resumo-erros" class="resumo-erros" tabindex="-1" hidden>
+            <h3 id="resumo-titulo">Confira os campos abaixo:</h3>
+            <ul id="lista-erros"></ul>
+          </div>
+
+          <!-- 1. Curso -->
+          <fieldset>
+            <legend><span class="passo" aria-hidden="true">1</span>Curso e turma</legend>
+            <div class="campo" role="radiogroup" aria-labelledby="rot-curso" aria-describedby="curso-erro" id="grupo-curso">
+              <span class="rotulo" id="rot-curso">Qual curso? <span class="obrig" aria-hidden="true">*</span></span>
+              <div class="cartoes-curso">
+                <div class="cartao-radio">
+                  <input type="radio" name="curso" id="curso-essencial" value="essencial">
+                  <label for="curso-essencial"><strong>Culinária Essencial</strong><span>A partir de 13 anos · R$ 480</span></label>
+                </div>
+                <div class="cartao-radio">
+                  <input type="radio" name="curso" id="curso-kids" value="kids">
+                  <label for="curso-kids"><strong>Culinária Kids</strong><span>6 a 12 anos + responsável · R$ 560/dupla</span></label>
+                </div>
+              </div>
+              <p class="erro" id="curso-erro" aria-live="polite"></p>
+            </div>
+
+            <div class="campo">
+              <label for="turma">Turma <span class="obrig" aria-hidden="true">*</span></label>
+              <span class="dica" id="turma-dica">Escolha primeiro o curso.</span>
+              <select id="turma" name="turma" aria-describedby="turma-dica turma-erro" disabled>
+                <option value="">Selecione o curso primeiro</option>
+              </select>
+              <p class="erro" id="turma-erro"></p>
+            </div>
+          </fieldset>
+
+          <!-- 2a. Aluno (Essencial) -->
+          <fieldset id="bloco-aluno" hidden>
+            <legend><span class="passo" aria-hidden="true">2</span>Dados do aluno</legend>
+            <div class="grade-2">
+              <div class="campo">
+                <label for="aluno-nome">Nome completo <span class="obrig" aria-hidden="true">*</span></label>
+                <input type="text" id="aluno-nome" name="aluno-nome" autocomplete="name" aria-describedby="aluno-nome-erro">
+                <p class="erro" id="aluno-nome-erro"></p>
+              </div>
+              <div class="campo">
+                <label for="aluno-idade">Idade <span class="obrig" aria-hidden="true">*</span></label>
+                <input type="number" id="aluno-idade" name="aluno-idade" inputmode="numeric" min="13" max="120" aria-describedby="aluno-idade-dica aluno-idade-erro">
+                <span class="dica" id="aluno-idade-dica" style="margin-top:4px">A partir de 13 anos.</span>
+                <p class="erro" id="aluno-idade-erro"></p>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- 2b. Criança (Kids) -->
+          <fieldset id="bloco-crianca" hidden>
+            <legend><span class="passo" aria-hidden="true">2</span>Dados da criança</legend>
+            <div class="grade-2">
+              <div class="campo">
+                <label for="crianca-nome">Nome completo da criança <span class="obrig" aria-hidden="true">*</span></label>
+                <input type="text" id="crianca-nome" name="crianca-nome" aria-describedby="crianca-nome-erro">
+                <p class="erro" id="crianca-nome-erro"></p>
+              </div>
+              <div class="campo">
+                <label for="crianca-idade">Idade da criança <span class="obrig" aria-hidden="true">*</span></label>
+                <input type="number" id="crianca-idade" name="crianca-idade" inputmode="numeric" min="6" max="12" aria-describedby="crianca-idade-dica crianca-idade-erro">
+                <span class="dica" id="crianca-idade-dica" style="margin-top:4px">De 6 a 12 anos.</span>
+                <p class="erro" id="crianca-idade-erro"></p>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- 3. Responsável (Kids ou menor de 18) -->
+          <fieldset id="bloco-resp" hidden>
+            <legend><span class="passo" aria-hidden="true">3</span>Dados do responsável</legend>
+            <p class="aviso-bloco aviso-info" id="resp-aviso">No Culinária Kids, o responsável participa e também cozinha nas aulas.</p>
+            <div class="grade-2">
+              <div class="campo">
+                <label for="resp-nome">Nome completo do responsável <span class="obrig" aria-hidden="true">*</span></label>
+                <input type="text" id="resp-nome" name="resp-nome" autocomplete="name" aria-describedby="resp-nome-erro">
+                <p class="erro" id="resp-nome-erro"></p>
+              </div>
+              <div class="campo">
+                <label for="resp-parentesco">Parentesco <span class="obrig" aria-hidden="true">*</span></label>
+                <select id="resp-parentesco" name="resp-parentesco" aria-describedby="resp-parentesco-erro">
+                  <option value="">Selecione</option>
+                  <option>Mãe</option><option>Pai</option><option>Avó</option><option>Avô</option><option>Tia / Tio</option><option>Outro responsável legal</option>
+                </select>
+                <p class="erro" id="resp-parentesco-erro"></p>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- 4. Contato -->
+          <fieldset id="bloco-contato" hidden>
+            <legend><span class="passo" aria-hidden="true" id="passo-contato">3</span><span id="legenda-contato">Contato</span></legend>
+            <div class="grade-2">
+              <div class="campo">
+                <label for="email">E-mail <span class="obrig" aria-hidden="true">*</span></label>
+                <input type="email" id="email" name="email" autocomplete="email" placeholder="nome@exemplo.com" aria-describedby="email-erro">
+                <p class="erro" id="email-erro"></p>
+              </div>
+              <div class="campo">
+                <label for="whatsapp">WhatsApp com DDD <span class="obrig" aria-hidden="true">*</span></label>
+                <input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel-national" inputmode="numeric" placeholder="(00) 00000-0000" aria-describedby="whatsapp-erro">
+                <p class="erro" id="whatsapp-erro"></p>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- 5. Alergias -->
+          <fieldset id="bloco-alergia" hidden>
+            <legend><span class="passo" aria-hidden="true" id="passo-alergia">4</span>Alergias e restrições alimentares</legend>
+            <div class="campo" role="radiogroup" aria-labelledby="rot-alergia" aria-describedby="tem-alergia-erro">
+              <span class="rotulo" id="rot-alergia"><span id="alergia-pergunta">Você tem alguma alergia ou restrição alimentar?</span> <span class="obrig" aria-hidden="true">*</span></span>
+              <div class="opcoes-inline">
+                <label><input type="radio" name="tem-alergia" value="nao" id="alergia-nao"> Não</label>
+                <label><input type="radio" name="tem-alergia" value="sim" id="alergia-sim"> Sim</label>
+              </div>
+              <p class="erro" id="tem-alergia-erro"></p>
+            </div>
+            <div class="campo" id="campo-alergia-desc" hidden>
+              <label for="alergia-desc">Descreva as alergias ou restrições <span class="obrig" aria-hidden="true">*</span></label>
+              <span class="dica" id="alergia-dica">Ex.: alergia a amendoim, intolerância à lactose, vegetariano, doença celíaca. Indique de quem é, se for o caso.</span>
+              <textarea id="alergia-desc" name="alergia-desc" aria-describedby="alergia-dica alergia-desc-erro"></textarea>
+              <p class="erro" id="alergia-desc-erro"></p>
+            </div>
+          </fieldset>
+
+          <!-- Envio -->
+          <div id="bloco-envio" hidden>
+            <div class="campo">
+              <label class="aceite"><input type="checkbox" id="aceite" name="aceite" aria-describedby="aceite-erro"> Concordo em ser contatado(a) pelo Ateliê do Sabor para confirmar a pré-inscrição.</label>
+              <p class="erro" id="aceite-erro"></p>
+            </div>
+            <button class="btn btn-primario" type="submit" style="width:100%">Enviar pré-inscrição</button>
+            <p class="nota" style="text-align:center">Esta é uma página de demonstração: nenhum dado é enviado ou armazenado.</p>
+          </div>
+        </form>
+
+        <div class="sucesso" id="sucesso" tabindex="-1" role="status" hidden>
+          <h3>Pré-inscrição recebida! 🎉</h3>
+          <p id="sucesso-texto">Obrigado! Nossa equipe vai entrar em contato para confirmar sua vaga.</p>
+          <dl id="sucesso-resumo"></dl>
+          <p class="nota">Lembrete: o reembolso é integral até 7 dias antes do início da turma. Esta é uma demonstração — nenhum dado foi enviado ou armazenado.</p>
+          <button class="btn btn-secundario" type="button" id="nova-inscricao">Fazer outra pré-inscrição</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="container">
+    <div class="rodape-grade">
+      <div>
+        <h2>Ateliê do Sabor</h2>
+        <p>Escola de culinária para quem quer aprender do zero — e para famílias que querem cozinhar juntas.</p>
+        <a class="btn btn-primario" href="#pre-inscricao">Fazer pré-inscrição</a>
+      </div>
+      <div>
+        <h3>Contato</h3>
+        <ul class="contato-lista">
+          <li><span aria-hidden="true">📍</span> Rua das Palmeiras, 85, Centro</li>
+          <li><span aria-hidden="true">💬</span> WhatsApp: <a href="https://wa.me/5500000000000">(00) 00000-0000</a></li>
+          <li><span aria-hidden="true">✉️</span> <a href="mailto:contato@ateliedosabor.example">contato@ateliedosabor.example</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Navegue</h3>
+        <ul class="contato-lista">
+          <li><a href="#cursos">Cursos</a></li>
+          <li><a href="#turmas">Turmas e datas</a></li>
+          <li><a href="#chef">Chef Helena Duarte</a></li>
+          <li><a href="#duvidas">Dúvidas frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="creditos">Ateliê do Sabor é uma escola fictícia criada para fins de estudo. Endereço, telefone e e-mail são fictícios. Ilustrações próprias em SVG.</p>
+  </div>
+</footer>
+
+<a class="btn btn-primario cta-movel" href="#pre-inscricao" id="cta-movel">Fazer pré-inscrição</a>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- Datas de início ---------- */
+  const MESES = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
+  const hoje = new Date(); hoje.setHours(0,0,0,0);
+
+  function primeiroDiaSemana(ano, mes, diaSemana){
+    const d = new Date(ano, mes, 1);
+    while (d.getDay() !== diaSemana) d.setDate(d.getDate() + 1);
+    return d;
+  }
+  function proximoMensal(diaSemana){
+    let d = primeiroDiaSemana(hoje.getFullYear(), hoje.getMonth(), diaSemana);
+    if (d < hoje) d = primeiroDiaSemana(hoje.getFullYear(), hoje.getMonth() + 1, diaSemana);
+    return d;
+  }
+  function proximoBimestral(){
+    const mesesValidos = [1,3,5,7,9]; // fev, abr, jun, ago, out
+    for (let i = 0; i < 24; i++){
+      const ref = new Date(hoje.getFullYear(), hoje.getMonth() + i, 1);
+      if (!mesesValidos.includes(ref.getMonth())) continue;
+      const d = primeiroDiaSemana(ref.getFullYear(), ref.getMonth(), 6);
+      if (d >= hoje) return d;
+    }
+    return null;
+  }
+  function formatar(d){ return d ? d.getDate() + " de " + MESES[d.getMonth()] + " de " + d.getFullYear() : "—"; }
+  function curta(d){ return d ? String(d.getDate()).padStart(2,"0") + "/" + String(d.getMonth()+1).padStart(2,"0") + "/" + d.getFullYear() : ""; }
+
+  const datas = {
+    manha: proximoMensal(1),
+    noite: proximoMensal(2),
+    sabado: proximoBimestral(),
+    kids: proximoBimestral()
+  };
+  document.querySelectorAll("[data-proximo]").forEach(function(el){
+    el.textContent = formatar(datas[el.dataset.proximo]);
+  });
+
+  const TURMAS = {
+    essencial: [
+      { id:"manha",  texto:"Manhã — segundas e quartas, 8h–11h (4 semanas)" },
+      { id:"noite",  texto:"Noite — terças e quintas, 19h–22h (4 semanas)" },
+      { id:"sabado", texto:"Sábado — sábados, 14h–17h (8 semanas)" }
+    ],
+    kids: [
+      { id:"kids", texto:"Sábado — sábados, 9h–11h (8 semanas)" }
+    ]
+  };
+  const NOME_CURSO = { essencial:"Culinária Essencial", kids:"Culinária Kids" };
+  const VALOR = { essencial:"R$ 480 à vista ou 4x de R$ 130 no cartão", kids:"R$ 560 por dupla à vista ou 4x de R$ 150 no cartão" };
+
+  /* ---------- Formulário ---------- */
+  const form = document.getElementById("form-pre");
+  const $ = function(id){ return document.getElementById(id); };
+  const turmaSel = $("turma");
+  const blocos = {
+    aluno: $("bloco-aluno"), crianca: $("bloco-crianca"), resp: $("bloco-resp"),
+    contato: $("bloco-contato"), alergia: $("bloco-alergia"), envio: $("bloco-envio")
+  };
+
+  function mostrar(el, visivel){
+    el.hidden = !visivel;
+    el.querySelectorAll("input,select,textarea").forEach(function(c){ c.disabled = !visivel; });
+  }
+
+  function cursoAtual(){
+    const r = form.querySelector("input[name=curso]:checked");
+    return r ? r.value : "";
+  }
+
+  function idadeAluno(){
+    const v = $("aluno-idade").value.trim();
+    return v === "" ? NaN : Number(v);
+  }
+
+  function atualizarFormulario(){
+    const curso = cursoAtual();
+    if (!curso) return;
+
+    // Turmas
+    const anterior = turmaSel.value;
+    turmaSel.innerHTML = "";
+    turmaSel.disabled = false;
+    if (TURMAS[curso].length > 1){
+      const o = document.createElement("option"); o.value = ""; o.textContent = "Selecione a turma"; turmaSel.appendChild(o);
+    }
+    TURMAS[curso].forEach(function(t){
+      const o = document.createElement("option");
+      o.value = t.id;
+      o.textContent = t.texto + (datas[t.id] ? " · início " + curta(datas[t.id]) : "");
+      turmaSel.appendChild(o);
+    });
+    if (TURMAS[curso].some(function(t){ return t.id === anterior; })) turmaSel.value = anterior;
+    $("turma-dica").textContent = curso === "kids"
+      ? "O Culinária Kids tem uma turma, aos sábados de manhã."
+      : "As datas mostram o próximo início de cada turma.";
+
+    const isKids = curso === "kids";
+    const menor = !isKids && idadeAluno() >= 13 && idadeAluno() < 18;
+    const precisaResp = isKids || menor;
+
+    mostrar(blocos.aluno, !isKids);
+    mostrar(blocos.crianca, isKids);
+    mostrar(blocos.resp, precisaResp);
+    mostrar(blocos.contato, true);
+    mostrar(blocos.alergia, true);
+    mostrar(blocos.envio, true);
+    mostrar($("campo-alergia-desc"), $("alergia-sim").checked);
+
+    $("resp-aviso").textContent = isKids
+      ? "No Culinária Kids, o responsável participa e também cozinha nas aulas."
+      : "Como o aluno é menor de 18 anos, precisamos dos dados de um responsável.";
+    $("legenda-contato").textContent = precisaResp ? "Contato do responsável" : "Seu contato";
+    $("passo-contato").textContent = precisaResp ? "4" : "3";
+    $("passo-alergia").textContent = precisaResp ? "5" : "4";
+    $("alergia-pergunta").textContent = isKids
+      ? "A criança ou o responsável têm alguma alergia ou restrição alimentar?"
+      : "O aluno tem alguma alergia ou restrição alimentar?";
+  }
+
+  form.querySelectorAll("input[name=curso]").forEach(function(r){
+    r.addEventListener("change", function(){ limparErro(this); atualizarFormulario(); });
+  });
+  $("aluno-idade").addEventListener("input", atualizarFormulario);
+  form.querySelectorAll("input[name=tem-alergia]").forEach(function(r){
+    r.addEventListener("change", function(){
+      limparErro(this);
+      mostrar($("campo-alergia-desc"), $("alergia-sim").checked);
+    });
+  });
+
+  // Botões dos cards pré-selecionam o curso
+  document.querySelectorAll("[data-curso]").forEach(function(b){
+    b.addEventListener("click", function(){
+      const r = $("curso-" + b.dataset.curso);
+      if (r){ r.checked = true; atualizarFormulario(); setTimeout(function(){ turmaSel.focus({preventScroll:true}); }, 400); }
+    });
+  });
+
+  // Máscara de WhatsApp
+  $("whatsapp").addEventListener("input", function(){
+    let d = this.value.replace(/\D/g, "").slice(0, 11);
+    let f = d;
+    if (d.length > 2) f = "(" + d.slice(0,2) + ") " + d.slice(2);
+    if (d.length > 7) f = "(" + d.slice(0,2) + ") " + d.slice(2, d.length === 11 ? 7 : 6) + "-" + d.slice(d.length === 11 ? 7 : 6);
+    this.value = f;
+  });
+
+  /* ---------- Validação ---------- */
+  function erroEl(campo){
+    const id = campo.name === "curso" ? "curso" : campo.name === "tem-alergia" ? "tem-alergia" : campo.id;
+    return $(id + "-erro");
+  }
+  function marcar(campo, msg){
+    const e = erroEl(campo);
+    if (e){ e.textContent = msg; e.classList.add("ativo"); }
+    if (campo.type !== "radio") campo.setAttribute("aria-invalid", "true");
+  }
+  function limparErro(campo){
+    const e = erroEl(campo);
+    if (e){ e.textContent = ""; e.classList.remove("ativo"); }
+    campo.removeAttribute("aria-invalid");
+  }
+
+  function validarNome(v, quem){
+    v = v.trim();
+    if (!v) return "Informe o nome completo " + quem + ".";
+    if (!/^[A-Za-zÀ-ÖØ-öø-ÿ'\-\s]+$/.test(v)) return "O nome deve conter apenas letras.";
+    if (v.split(/\s+/).filter(Boolean).length < 2) return "Informe nome e sobrenome " + quem + ".";
+    return "";
+  }
+
+  function validar(){
+    const erros = [];
+    const add = function(campo, msg, alvo){ marcar(campo, msg); erros.push({ alvo: alvo || campo, msg: msg }); };
+
+    const curso = cursoAtual();
+    if (!curso){
+      add($("curso-essencial"), "Escolha um curso: Culinária Essencial ou Culinária Kids.");
+      return erros; // o restante depende do curso
+    }
+    if (!turmaSel.value) add(turmaSel, "Escolha a turma.");
+
+    if (curso === "essencial"){
+      const n = validarNome($("aluno-nome").value, "do aluno"); if (n) add($("aluno-nome"), n);
+      const idade = idadeAluno(), ci = $("aluno-idade");
+      if (isNaN(idade)) add(ci, "Informe a idade do aluno.");
+      else if (!Number.isInteger(idade)) add(ci, "Informe a idade em anos inteiros.");
+      else if (idade < 6) add(ci, "Idade inválida. O Culinária Essencial é a partir de 13 anos.");
+      else if (idade < 13) add(ci, "O Culinária Essencial é a partir de 13 anos. Para crianças de 6 a 12 anos, escolha o Culinária Kids.");
+      else if (idade > 120) add(ci, "Confira a idade informada.");
+    } else {
+      const n = validarNome($("crianca-nome").value, "da criança"); if (n) add($("crianca-nome"), n);
+      const v = $("crianca-idade").value.trim(), ci = $("crianca-idade"), idade = Number(v);
+      if (v === "") add(ci, "Informe a idade da criança.");
+      else if (!Number.isInteger(idade)) add(ci, "Informe a idade em anos inteiros.");
+      else if (idade < 6) add(ci, "O Culinária Kids é para crianças a partir de 6 anos.");
+      else if (idade > 12) add(ci, "O Culinária Kids é para crianças de até 12 anos. A partir de 13 anos, escolha o Culinária Essencial.");
+    }
+
+    if (!blocos.resp.hidden){
+      const n = validarNome($("resp-nome").value, "do responsável"); if (n) add($("resp-nome"), n);
+      if (!$("resp-parentesco").value) add($("resp-parentesco"), "Informe o parentesco do responsável.");
+    }
+
+    const email = $("email").value.trim();
+    if (!email) add($("email"), "Informe um e-mail.");
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) add($("email"), "E-mail inválido. Use o formato nome@exemplo.com.");
+
+    const tel = $("whatsapp").value.replace(/\D/g, "");
+    if (!tel) add($("whatsapp"), "Informe um número de WhatsApp com DDD.");
+    else if (tel.length < 10 || tel.length > 11) add($("whatsapp"), "Número incompleto. Use DDD + número, ex.: (86) 99999-9999.");
+
+    if (!form.querySelector("input[name=tem-alergia]:checked")) add($("alergia-nao"), "Responda se há alguma alergia ou restrição alimentar.");
+    else if ($("alergia-sim").checked && $("alergia-desc").value.trim().length < 3) add($("alergia-desc"), "Descreva quais são as alergias ou restrições.");
+
+    if (!$("aceite").checked) add($("aceite"), "Marque a autorização de contato para concluir a pré-inscrição.");
+
+    return erros;
+  }
+
+  function limparTodos(){
+    form.querySelectorAll(".erro").forEach(function(e){ e.textContent = ""; e.classList.remove("ativo"); });
+    form.querySelectorAll("[aria-invalid]").forEach(function(c){ c.removeAttribute("aria-invalid"); });
+  }
+
+  form.addEventListener("input", function(e){ if (e.target.getAttribute("aria-invalid")) limparErro(e.target); });
+  form.addEventListener("change", function(e){ if (e.target.matches("select,input[type=checkbox]")) limparErro(e.target); });
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    limparTodos();
+    const erros = validar();
+    const resumo = $("resumo-erros"), lista = $("lista-erros");
+    lista.innerHTML = "";
+
+    if (erros.length){
+      $("resumo-titulo").textContent = erros.length === 1
+        ? "Falta corrigir 1 campo:"
+        : "Falta corrigir " + erros.length + " campos:";
+      erros.forEach(function(er){
+        const li = document.createElement("li"), a = document.createElement("a");
+        a.href = "#" + er.alvo.id; a.textContent = er.msg;
+        a.addEventListener("click", function(ev){ ev.preventDefault(); er.alvo.focus(); er.alvo.scrollIntoView({block:"center"}); });
+        li.appendChild(a); lista.appendChild(li);
+      });
+      resumo.hidden = false;
+      resumo.focus();
+      return;
+    }
+    resumo.hidden = true;
+    mostrarSucesso();
+  });
+
+  function mostrarSucesso(){
+    const curso = cursoAtual();
+    const turmaTxt = turmaSel.options[turmaSel.selectedIndex].textContent;
+    const linhas = [["Curso", NOME_CURSO[curso]], ["Turma", turmaTxt]];
+    if (curso === "essencial"){
+      linhas.push(["Aluno", $("aluno-nome").value.trim() + " (" + idadeAluno() + " anos)"]);
+    } else {
+      linhas.push(["Criança", $("crianca-nome").value.trim() + " (" + $("crianca-idade").value + " anos)"]);
+    }
+    if (!blocos.resp.hidden) linhas.push(["Responsável", $("resp-nome").value.trim() + " (" + $("resp-parentesco").value + ")"]);
+    linhas.push(["Contato", $("email").value.trim() + " · " + $("whatsapp").value]);
+    linhas.push(["Alergias/restrições", $("alergia-sim").checked ? $("alergia-desc").value.trim() : "Nenhuma informada"]);
+    linhas.push(["Valor", VALOR[curso]]);
+
+    const dl = $("sucesso-resumo"); dl.innerHTML = "";
+    linhas.forEach(function(l){
+      const dt = document.createElement("dt"), dd = document.createElement("dd");
+      dt.textContent = l[0]; dd.textContent = l[1]; dl.appendChild(dt); dl.appendChild(dd);
+    });
+    const primeiroNome = (blocos.resp.hidden ? $("aluno-nome").value : $("resp-nome").value).trim().split(/\s+/)[0];
+    $("sucesso-texto").textContent = "Obrigado, " + primeiroNome + "! Recebemos sua pré-inscrição. Nossa equipe vai entrar em contato pelo WhatsApp ou e-mail para confirmar a vaga e combinar o pagamento.";
+
+    form.hidden = true;
+    const s = $("sucesso"); s.hidden = false; s.focus();
+    s.scrollIntoView({block:"start"});
+  }
+
+  $("nova-inscricao").addEventListener("click", function(){
+    form.reset();
+    limparTodos();
+    ["aluno","crianca","resp","contato","alergia","envio"].forEach(function(k){ mostrar(blocos[k], false); });
+    turmaSel.innerHTML = '<option value="">Selecione o curso primeiro</option>';
+    turmaSel.disabled = true;
+    $("turma-dica").textContent = "Escolha primeiro o curso.";
+    $("sucesso").hidden = true;
+    form.hidden = false;
+    $("curso-essencial").focus();
+  });
+
+  // Estado inicial: campos ocultos ficam desabilitados
+  ["aluno","crianca","resp","contato","alergia","envio"].forEach(function(k){ mostrar(blocos[k], false); });
+
+  // Esconde o botão flutuante quando o formulário está visível
+  const cta = $("cta-movel");
+  if ("IntersectionObserver" in window){
+    new IntersectionObserver(function(entradas){
+      entradas.forEach(function(en){ cta.classList.toggle("oculto", en.isIntersecting); });
+    }, { threshold: 0.05 }).observe($("pre-inscricao"));
+  }
+})();
+</script>
+</body>
+</html>
